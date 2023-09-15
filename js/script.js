@@ -1,0 +1,136 @@
+// active searchForm
+let searchForm = document.querySelector(".search-form");
+
+document.querySelector("#search-btn").onclick = () => {
+  searchForm.classList.toggle("active");
+  navbar.classList.remove("active");
+};
+// active navbar
+let navbar = document.querySelector(".navbar");
+
+document.querySelector("#menu-btn").onclick = () => {
+  navbar.classList.toggle("active");
+  searchForm.classList.remove("active");
+};
+
+// active searchForm and navbar when scroll
+window.onscroll = () => {
+  searchForm.classList.remove("active");
+  navbar.classList.remove("active");
+};
+
+// products filter
+
+let filterBtn = document.querySelectorAll(".filter-buttons .buttons");
+let filterItem = document.querySelectorAll(".products .box-container .box");
+
+filterBtn.forEach((button) => {
+  button.onclick = () => {
+    filterBtn.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+    let dataFilter = button.getAttribute("data-filter");
+    filterItem.forEach((item) => {
+      item.classList.remove("active");
+      item.classList.add("hide");
+      if (item.getAttribute("data-item") == dataFilter || dataFilter == "all") {
+        item.classList.add("active");
+        item.classList.remove("hide");
+      }
+    });
+  };
+});
+
+// swiper
+
+var swiper = new Swiper(".home-slider", {
+  centeredSlides: true,
+  loop: true,
+
+  autoplay: {
+    delay: 5500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+var swiper = new Swiper(".featuref-slide", {
+  spaceBetween: 20,
+  centeredSlides: true,
+  loop: true,
+
+  autoplay: {
+    delay: 5500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    450: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    },
+  },
+});
+
+var swiper = new Swiper(".review-slide", {
+  spaceBetween: 20,
+
+  loop: true,
+
+  autoplay: {
+    delay: 5500,
+    disableOnInteraction: false,
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+
+    768: {
+      slidesPerView: 2,
+    },
+  },
+});
+
+var swiper = new Swiper(".blogs-slider ", {
+  spaceBetween: 20,
+  loop: true,
+  autoplay: {
+    delay: 5500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+
+    768: {
+      slidesPerView: 2,
+    },
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+
